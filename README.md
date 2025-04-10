@@ -1,19 +1,19 @@
 
-# Model Context Protocol (MCP)
+##🚀 Model Context Protocol (MCP)
 
-## Overview
+### Overview
 MCP (Model Context Protocol)는 애플리케이션이 LLM(Large Language Model)과 상호작용할 때 컨텍스트를 제공하는 방법을 표준화한 개방형 프로토콜입니다. USB-C와 같이 AI 애플리케이션을 위한 표준 연결 방식으로 이해할 수 있습니다.
 
-## Why MCP?
+### Why MCP?
 MCP는 다음과 같은 이점을 제공하여 LLM 기반 에이전트와 복잡한 워크플로우 구축을 지원합니다:
 - 미리 구축된 다양한 통합 기능 제공
 - 여러 LLM 제공업체 간 쉬운 전환 가능
 - 데이터 보안을 위한 모범 사례 제공
 
-## Architecture
+### 🏗️ Architecture
 MCP는 클라이언트-서버 아키텍처를 기반으로 하며 다음과 같은 주요 구성요소로 이루어져 있습니다:
-
-### Components
+![architecture](init/1.png)
+#### Components
 1. **MCP Hosts**
    - Claude Desktop, IDE 등 MCP를 통해 데이터에 접근하는 프로그램
    - 주요 파일: `main_sse.py`, `main_stdio.py`, `mcp_client/converse_agent.py`, `converse_tool.py`
@@ -29,9 +29,8 @@ MCP는 클라이언트-서버 아키텍처를 기반으로 하며 다음과 같�
    - context, prompt, tool을 클라이언트에게 제공
    - 주요 파일: `mcp_server/server.py`
 
-###  Core Architecture 
-그림 
-
+### 🧩 Core Architecture 
+![architecture](init/2.png)
 #### Transport Layer
 JSON-RPC 기반으로 구현되며 다음과 같은 전송 방식을 지원합니다:
 - **Stdio transport**: 표준 IO를 사용하며 로컬 프로세스에 적합
@@ -54,7 +53,8 @@ JSON-RPC 기반으로 구현되며 다음과 같은 전송 방식을 지원합�
 └── mcp_server/
     └── server.py
 ```
-
+### 🔄 mcp_client , server, bedrock sequence diagram
+![architecture](init/3.png)
 -------
 ### ✅ Prerequisites
 - Python 3.13+
