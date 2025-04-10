@@ -1,5 +1,5 @@
 
-##🚀 Model Context Protocol (MCP)
+## 🚀Model Context Protocol (MCP)
 
 ### Overview
 MCP (Model Context Protocol)는 애플리케이션이 LLM(Large Language Model)과 상호작용할 때 컨텍스트를 제공하는 방법을 표준화한 개방형 프로토콜입니다. USB-C와 같이 AI 애플리케이션을 위한 표준 연결 방식으로 이해할 수 있습니다.
