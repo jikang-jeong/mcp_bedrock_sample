@@ -16,8 +16,8 @@ MCP는 클라이언트-서버 아키텍처를 기반으로 하며 다음과 같�
 #### Components
 1. **MCP Hosts**
    - Claude Desktop, IDE 등 MCP를 통해 데이터에 접근하는 프로그램
-   - 주요 파일: `main_sse.py`, `main_stdio.py`, `mcp_client/converse_agent.py`, `converse_tool.py`
-   - Bedrock은 converse api의 tool_use spec을 사용하여 mcp_tool 연결
+   - 주요 파일: `main_sse.py`, `main_stdio.py`, `mcp_client/converse_agent.py`, `converse_tool.py` 
+   - Bedrock-converse api의 tool_use spec을 사용하여 mcp_tool 연결
    > Note: Bedrock agent를 비롯한 tool_use와 같은 기능을 지원하지 않는 LLM서비스는 MCP 사용이 제한될 수 있습니다.
 
 2. **MCP Clients**
@@ -28,18 +28,6 @@ MCP는 클라이언트-서버 아키텍처를 기반으로 하며 다음과 같�
    - 표준화된 Model Context Protocol을 통해 특정 기능 제공
    - context, prompt, tool을 클라이언트에게 제공
    - 주요 파일: `mcp_server/server.py`
-
-### 🧩 Core Architecture 
-![architecture](init/2.png)
-#### Transport Layer
-JSON-RPC 기반으로 구현되며 다음과 같은 전송 방식을 지원합니다:
-- **Stdio transport**: 표준 IO를 사용하며 로컬 프로세스에 적합
-- **HTTP with SSE transport**: Server to Client 메시지를 위한 server-sent events 사용
-
-#### Core Features
-- **Prompt**: LLM과의 상호작용을 위한 프롬프트 관리
-- **Tools**: LLM이 서버를 통해 작업을 수행할 수 있도록 지원
-- **Resource**: 
 
 ### File Structure
 ```
@@ -53,6 +41,18 @@ JSON-RPC 기반으로 구현되며 다음과 같은 전송 방식을 지원합�
 └── mcp_server/
     └── server.py
 ```
+### 🧩 Core Architecture 
+![architecture](init/2.png)
+#### Transport Layer
+JSON-RPC 기반으로 구현되며 다음과 같은 전송 방식을 지원합니다:
+- **Stdio transport**: 표준 IO를 사용하며 로컬 프로세스에 적합
+- **HTTP with SSE transport**: Server to Client 메시지를 위한 server-sent events 사용
+
+#### Core Features
+- **Prompt**: LLM과의 상호작용을 위한 프롬프트 관리
+- **Tools**: LLM이 서버를 통해 작업을 수행할 수 있도록 지원
+- **Resource**: 
+
 ### 🔄 mcp_client , server, bedrock sequence diagram
 ![architecture](init/3.png)
 -------
